@@ -10,7 +10,7 @@ export const getSearchResults = createAsyncThunk(
   "/order/getSearchResults",
   async (keyword) => {
     const response = await axios.get(
-      `http://localhost:8002/api/v1/search/${keyword}`
+      `https://completebackend-6.onrender.com/api/v1/search/${keyword}`
     );
 
     return response.data;

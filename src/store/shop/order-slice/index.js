@@ -13,7 +13,7 @@ export const createNewOrder = createAsyncThunk(
   "/order/createNewOrder",
   async (orderData) => {
     const response = await axios.post(
-      "http://localhost:8002/api/v1/order/create",
+      "https://completebackend-6.onrender.com/api/v1/order/create",
       orderData
     );
 
@@ -28,7 +28,7 @@ export const capturePayment = createAsyncThunk(
     razorpay_signature,
     orderId }) => {
     const response = await axios.post(
-      "http://localhost:8002/api/v1/order/capture",
+      "https://completebackend-6.onrender.com/api/v1/order/capture",
       {
           razorpay_order_id,
          razorpay_payment_id,
@@ -45,7 +45,7 @@ export const getAllOrdersByUserId = createAsyncThunk(
   "/order/getAllOrdersByUserId",
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:8002/api/v1/order/list/${userId}`
+      `https://completebackend-6.onrender.com/api/v1/order/list/${userId}`
     );
 
     return response.data;
@@ -56,7 +56,7 @@ export const getOrderDetails = createAsyncThunk(
   "/order/getOrderDetails",
   async (id) => {
     const response = await axios.get(
-      `http://localhost:8002/api/v1/order/details/${id}`
+      `https://completebackend-6.onrender.com/api/v1/order/details/${id}`
     );
 
     return response.data;
