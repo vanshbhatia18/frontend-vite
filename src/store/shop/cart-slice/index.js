@@ -10,7 +10,7 @@ export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async ({ userId, productId, quantity }) => {
     const response = await axios.post(
-      "https://completebackend-6.onrender.com/api/v1/cart/add",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/add`,
       {
         userId,
         productId,
@@ -26,7 +26,7 @@ export const fetchCartItems = createAsyncThunk(
   "cart/fetchCartItems",
   async (userId) => {
     const response = await axios.get(
-      `https://completebackend-6.onrender.com/api/v1/cart/get/${userId}`
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/get/${userId}`
     );
 
     return response.data;
@@ -37,7 +37,7 @@ export const deleteCartItem = createAsyncThunk(
   "cart/deleteCartItem",
   async ({ userId, productId }) => {
     const response = await axios.delete(
-      `https://completebackend-6.onrender.com/api/v1/cart/${userId}/${productId}`
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/${userId}/${productId}`
     );
 
     return response.data;
@@ -48,7 +48,7 @@ export const updateCartQuantity = createAsyncThunk(
   "cart/updateCartQuantity",
   async ({ userId, productId, quantity }) => {
     const response = await axios.put(
-      "https://completebackend-6.onrender.com/api/v1/cart/update-cart",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/cart/update-cart`,
       {
         userId,
         productId,

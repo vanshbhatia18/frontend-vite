@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import { api } from "../../api/axios";
 const initialState = {
   isAuthenticated: false,
   isLoading: true,
@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk(
 
   async (formData) => {
     const response = await axios.post(
-      "https://completebackend-6.onrender.com/api/v1/users/register",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/register`,
       formData,
       {
         withCredentials: true,
@@ -28,7 +28,7 @@ export const loginUser = createAsyncThunk(
 
   async (formData) => {
     const response = await axios.post(
-      "https://completebackend-6.onrender.com/api/v1/users/login",
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/login`,
       formData,
       {
         withCredentials: true,
@@ -44,11 +44,15 @@ export const logoutUser = createAsyncThunk(
 
   async () => {
     const response = await axios.post(
-      "https://completebackend-6.onrender.com/api/v1/users/logout",
-      {},
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/users/logout`,
       {
+      
+       
+      },{
         withCredentials: true,
+       
       }
+     
     );
 
     return response.data;
@@ -59,8 +63,8 @@ export const checkAuth = createAsyncThunk(
   "/auth/checkauth",
 
   async () => {
-    const response = await axios.get(
-      "https://completebackend-6.onrender.com/api/v1/users/check-auth",
+    const response = await api.get(
+     `/users/check-auth`,
       {
         withCredentials: true,
         headers: {
@@ -87,7 +91,8 @@ const authSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = null;
+        state.user = action.payload.data;
+        
         state.isAuthenticated = false;
       })
       .addCase(registerUser.rejected, (state, action) => {

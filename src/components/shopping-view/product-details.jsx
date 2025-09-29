@@ -76,7 +76,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     dispatch(
       addReview({
         productId: productDetails?._id,
-        userId: user?.id,
+        userId: user?._id,
         userName: user?.username,
         reviewMessage: reviewMsg,
         reviewValue: rating,
@@ -97,7 +97,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     if (productDetails !== null) dispatch(getReviews(productDetails?._id));
   }, [productDetails]);
 
-  
+
 
   const averageReview =
     reviews && reviews.length > 0

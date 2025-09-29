@@ -18,7 +18,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
     });
      
     const result = await axios.get(
-      `https://completebackend-6.onrender.com/api/v1/products/getProducts?${query}`
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/products/getProducts?${query}`
     );
 
     
@@ -32,14 +32,14 @@ export const fetchProductDetails = createAsyncThunk(
   async (id) => {
   
     const result = await axios.get(
-      `https://completebackend-6.onrender.com/api/v1/products/get/${id}`
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/products/get/${id}`
     );
 
     return result?.data;
   }
 );
 export const allProducts = createAsyncThunk("/products/getAllProducts",async()=> {
-  const result = await axios.get("https://completebackend-6.onrender.com/api/v1/products/get-products");
+  const result = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/products/get-products`);
   return result.data;
 })
 const shoppingProductSlice = createSlice({

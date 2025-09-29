@@ -10,7 +10,7 @@ export const getFeatureImages = createAsyncThunk(
   "/order/getFeatureImages",
   async () => {
     const response = await axios.get(
-      `https://completebackend-6.onrender.com/api/v1/feature/get`
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/feature/get`
     );
 
     return response.data;
@@ -21,7 +21,7 @@ export const addFeatureImage = createAsyncThunk(
   "/order/addFeatureImage",
   async (image) => {
     const response = await axios.post(
-      `https://completebackend-6.onrender.com/api/v1/feature/add`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/feature/add`,
       { image }
     );
 

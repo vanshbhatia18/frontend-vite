@@ -53,15 +53,7 @@ function ShoppingProductTile({
         </div>
 
         {/* Ratings (optional placeholder) */}
-        <div className="flex items-center gap-0.5 mt-1">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              className="w-3 h-3 fill-yellow-400 stroke-yellow-400"
-            />
-          ))}
-          <span className="text-[10px] text-gray-500 ml-1">(123)</span>
-        </div>
+
 
         {/* Price */}
         <div className="mt-2 flex items-center gap-2">
