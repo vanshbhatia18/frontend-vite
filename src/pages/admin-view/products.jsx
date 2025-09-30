@@ -54,7 +54,7 @@ function AdminProducts() {
           formData,
         })
       ).then((data) => {
-        console.log(data, "edit");
+
 
         if (data?.payload?.success) {
           dispatch(fetchAllProducts());
@@ -69,7 +69,7 @@ function AdminProducts() {
           image: uploadedImageUrl,
         })
       ).then((data) => {
-        console.log(data, "data after adding product is")
+
         if (data?.payload?.success) {
           dispatch(fetchAllProducts());
           setOpenCreateProductsDialog(false);

@@ -35,13 +35,12 @@ function ShoppingOrderDetailsView({ orderDetails }) {
             <p className="font-medium">Order Status</p>
             <Label>
               <Badge
-                className={`py-1 px-3 ${
-                  orderDetails?.orderStatus === "confirmed"
-                    ? "bg-green-500"
-                    : orderDetails?.orderStatus === "rejected"
+                className={`py-1 px-3 ${orderDetails?.orderStatus === "confirmed"
+                  ? "bg-green-500"
+                  : orderDetails?.orderStatus === "rejected"
                     ? "bg-red-600"
                     : "bg-black"
-                }`}
+                  }`}
               >
                 {orderDetails?.orderStatus}
               </Badge>
@@ -55,12 +54,12 @@ function ShoppingOrderDetailsView({ orderDetails }) {
             <ul className="grid gap-3">
               {orderDetails?.cartItems && orderDetails?.cartItems.length > 0
                 ? orderDetails?.cartItems.map((item) => (
-                    <li className="flex items-center justify-between">
-                      <span>Title: {item.title}</span>
-                      <span>Quantity: {item.quantity}</span>
-                      <span>Price: ${item.price}</span>
-                    </li>
-                  ))
+                  <li className="flex items-center justify-between">
+                    <span>Title: {item.title}</span>
+                    <span>Quantity: {item.quantity}</span>
+                    <span>Price: ${item.price}</span>
+                  </li>
+                ))
                 : null}
             </ul>
           </div>

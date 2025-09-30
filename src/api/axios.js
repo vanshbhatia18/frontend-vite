@@ -22,7 +22,7 @@ const processQueue = (error, token = null) => {
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    console.log(error.response?.data);
+    
     const originalRequest = error.config;
 
     // if not 401 or already retried → reject immediately
@@ -55,7 +55,7 @@ api.interceptors.response.use(
         return api(originalRequest); // retry original
       } catch (refreshError) {
         processQueue(refreshError, null);
-        console.error("Session expired. Please log in again.");
+      
         // e.g. logout user → window.location.href = "/login";
         return Promise.reject(refreshError);
       } finally {

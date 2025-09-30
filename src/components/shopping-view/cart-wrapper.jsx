@@ -9,14 +9,14 @@ function UserCartWrapper({ cartItems, setOpenCartSheet }) {
   const totalCartAmount =
     cartItems && cartItems.length > 0
       ? cartItems.reduce(
-          (sum, currentItem) =>
-            sum +
-            (currentItem?.salePrice > 0
-              ? currentItem?.salePrice
-              : currentItem?.price) *
-              currentItem?.quantity,
-          0
-        )
+        (sum, currentItem) =>
+          sum +
+          (currentItem?.salePrice > 0
+            ? currentItem?.salePrice
+            : currentItem?.price) *
+          currentItem?.quantity,
+        0
+      )
       : 0;
 
   return (
